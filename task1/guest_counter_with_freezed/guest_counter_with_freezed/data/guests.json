@@ -1,0 +1,36 @@
+{
+  "guests": [
+    {
+      "name": "Guest0",
+      "isAlone": true
+    },
+    {
+      "name": "Guest1",
+      "isAlone": false
+    },
+    {
+      "name": "Guest2",
+      "isAlone": false
+    },
+    {
+      "name": "Guest3",
+      "isAlone": true
+    },
+    {
+      "name": "Guest4",
+      "isAlone": true
+    },
+    {
+      "name": "Guest5",
+      "isAlone": true
+    },
+    {
+      "name": "Guest6",
+      "isAlone": true
+    },
+    {
+      "name": "Guest7",
+      "isAlone": false
+    }
+  ]
+}
