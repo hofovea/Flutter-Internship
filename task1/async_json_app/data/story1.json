@@ -1,0 +1,13 @@
+{
+  "type": "Story",
+  "data": {
+    "id": 12,
+    "title": "Why we're leaving the cloud",
+    "author": {
+      "id": 0,
+      "username": "user 1",
+      "about": "Hi I'm user 1"
+    },
+    "story_text": "Some story text"
+  }
+}
