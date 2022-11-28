@@ -1,3 +1,4 @@
+import 'package:driver_lessons_app/models/data_service.dart';
 import 'package:driver_lessons_app/models/lesson/lesson.dart';
 import 'package:driver_lessons_app/widgets/bottom_tab_bar.dart';
 import 'package:driver_lessons_app/widgets/lesson_tile.dart';
@@ -30,45 +31,22 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const int _selectedIndex = 0;
-  static List<Lesson> lessons = [
-    const Lesson(
-        title: "tt",
-        level: "begginer",
-        levelIndicator: 0.33,
-        price: 23,
-        content: "csscs",
-        iconName: "")
+  List<Lesson> lessons = [
+    // const Lesson(
+    //     title: "tt",
+    //     level: "begginer",
+    //     levelIndicator: 0.33,
+    //     price: 23,
+    //     content: "csscs",
+    //     iconName: "")
   ];
   static const Color _backgroundColor = Color.fromRGBO(60, 66, 86, 1);
   static final _bottomMenuSelectedItemColor = Colors.amber[800];
   static const _bottomMenuItemColor = Color.fromRGBO(190, 190, 190, 1);
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  final List<Widget> _widgetOptions = <Widget>[
-    RefreshIndicator(
-      onRefresh: () async {
-        
-      },
-      child: ListView.builder(
-        itemCount: lessons.length,
-        itemBuilder: (BuildContext context, int index) {
-          return LessonTile(lesson: lessons[index]);
-        },
-      ),
-    ),
-    const Text(
-      'Not implemented',
-      style: optionStyle,
-    ),
-    const Text(
-      'Not implemented',
-      style: optionStyle,
-    ),
-    const Text(
-      'Not implemented',
-      style: optionStyle,
-    ),
-  ];
+
+  String _title = '';
 
   void _onItemTapped(int index) {
     setState(() {
@@ -85,18 +63,73 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             appBar: AppBar(
               elevation: 0,
               backgroundColor: _backgroundColor,
-              title: Text("widget.title"),
+              title: Text(_title),
             ),
             endDrawer: const OptionsDrawer(backgroundColor: _backgroundColor),
             body: Center(
               child: TabBarView(
-                children: _widgetOptions,
+                children: [
+                  RefreshIndicator(
+                    onRefresh: () async {
+                      final newLessons = await DataService.readLessons();
+                      setState(() {
+                        lessons = newLessons;
+                      });
+                    },
+                    child: ListView.builder(
+                      itemCount: lessons.length,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return LessonTile(lesson: lessons[index]);
+                      },
+                    ),
+                  ),
+                  const Text(
+                    'Not implemented',
+                    style: optionStyle,
+                  ),
+                  const Text(
+                    'Not implemented',
+                    style: optionStyle,
+                  ),
+                  const Text(
+                    'Not implemented',
+                    style: optionStyle,
+                  ),
+                ],
               ),
             ),
             bottomNavigationBar: SafeArea(
               child: BottomTabBar(
-                  bottomMenuItemColor: _bottomMenuItemColor,
-                  bottomMenuSelectedItemColor: _bottomMenuSelectedItemColor),
+                bottomMenuItemColor: _bottomMenuItemColor,
+                bottomMenuSelectedItemColor: _bottomMenuSelectedItemColor,
+                onTapHandler: (index) {
+                  setState(() {
+                    switch (index) {
+                      case 0:
+                        {
+                          _title = 'Lessons';
+                        }
+                        break;
+                      case 1:
+                        {
+                          _title = 'Plan';
+                        }
+                        break;
+                      case 2:
+                        {
+                          _title = 'Video lessons';
+                        }
+                        break;
+                      case 3:
+                        {
+                          _title = 'Personal';
+                        }
+                        break;
+                    }
+                  });
+                },
+              ),
             )));
   }
 }

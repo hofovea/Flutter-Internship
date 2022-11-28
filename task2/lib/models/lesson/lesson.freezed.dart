@@ -250,3 +250,144 @@ abstract class _Lesson implements Lesson {
   _$$_LessonCopyWith<_$_Lesson> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+LessonList _$LessonListFromJson(Map<String, dynamic> json) {
+  return _LessonList.fromJson(json);
+}
+
+/// @nodoc
+mixin _$LessonList {
+  List<Lesson> get data => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LessonListCopyWith<LessonList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LessonListCopyWith<$Res> {
+  factory $LessonListCopyWith(
+          LessonList value, $Res Function(LessonList) then) =
+      _$LessonListCopyWithImpl<$Res, LessonList>;
+  @useResult
+  $Res call({List<Lesson> data});
+}
+
+/// @nodoc
+class _$LessonListCopyWithImpl<$Res, $Val extends LessonList>
+    implements $LessonListCopyWith<$Res> {
+  _$LessonListCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_value.copyWith(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<Lesson>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_LessonListCopyWith<$Res>
+    implements $LessonListCopyWith<$Res> {
+  factory _$$_LessonListCopyWith(
+          _$_LessonList value, $Res Function(_$_LessonList) then) =
+      __$$_LessonListCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Lesson> data});
+}
+
+/// @nodoc
+class __$$_LessonListCopyWithImpl<$Res>
+    extends _$LessonListCopyWithImpl<$Res, _$_LessonList>
+    implements _$$_LessonListCopyWith<$Res> {
+  __$$_LessonListCopyWithImpl(
+      _$_LessonList _value, $Res Function(_$_LessonList) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_LessonList(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<Lesson>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_LessonList implements _LessonList {
+  _$_LessonList(final List<Lesson> data) : _data = data;
+
+  factory _$_LessonList.fromJson(Map<String, dynamic> json) =>
+      _$$_LessonListFromJson(json);
+
+  final List<Lesson> _data;
+  @override
+  List<Lesson> get data {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'LessonList(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LessonList &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LessonListCopyWith<_$_LessonList> get copyWith =>
+      __$$_LessonListCopyWithImpl<_$_LessonList>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_LessonListToJson(
+      this,
+    );
+  }
+}
+
+abstract class _LessonList implements LessonList {
+  factory _LessonList(final List<Lesson> data) = _$_LessonList;
+
+  factory _LessonList.fromJson(Map<String, dynamic> json) =
+      _$_LessonList.fromJson;
+
+  @override
+  List<Lesson> get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LessonListCopyWith<_$_LessonList> get copyWith =>
+      throw _privateConstructorUsedError;
+}

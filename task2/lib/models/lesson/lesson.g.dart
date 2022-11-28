@@ -23,3 +23,15 @@ Map<String, dynamic> _$$_LessonToJson(_$_Lesson instance) => <String, dynamic>{
       'content': instance.content,
       'iconName': instance.iconName,
     };
+
+_$_LessonList _$$_LessonListFromJson(Map<String, dynamic> json) =>
+    _$_LessonList(
+      (json['data'] as List<dynamic>)
+          .map((e) => Lesson.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_LessonListToJson(_$_LessonList instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+    };

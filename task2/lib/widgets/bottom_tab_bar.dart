@@ -2,16 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatelessWidget {
-  const BottomTabBar({
-    Key? key,
-    required Color bottomMenuItemColor,
-    required Color? bottomMenuSelectedItemColor,
-  })  : _bottomMenuItemColor = bottomMenuItemColor,
+  const BottomTabBar(
+      {Key? key,
+      required Color bottomMenuItemColor,
+      required Color? bottomMenuSelectedItemColor,
+      required this.onTapHandler})
+      : _bottomMenuItemColor = bottomMenuItemColor,
         _bottomMenuSelectedItemColor = bottomMenuSelectedItemColor,
         super(key: key);
 
   final Color _bottomMenuItemColor;
   final Color? _bottomMenuSelectedItemColor;
+  final Function(int) onTapHandler;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class BottomTabBar extends StatelessWidget {
       unselectedLabelColor: _bottomMenuItemColor,
       labelColor: _bottomMenuSelectedItemColor,
       indicatorColor: _bottomMenuSelectedItemColor,
-      onTap: (index) {},
+      onTap: (index) => onTapHandler(index),
       tabs: const [
         Tab(icon: Icon(Icons.book)),
         Tab(icon: Icon(Icons.calendar_month_sharp)),

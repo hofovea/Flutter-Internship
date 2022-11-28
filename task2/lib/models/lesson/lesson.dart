@@ -16,3 +16,11 @@ class Lesson with _$Lesson {
 
   factory Lesson.fromJson(Map<String, Object?> json) => _$LessonFromJson(json);
 }
+
+@freezed
+class LessonList with _$LessonList {
+  factory LessonList(List<Lesson> data) = _LessonList;
+
+  factory LessonList.fromJson(Map<String, dynamic> json) =>
+      _$LessonListFromJson(json);
+}

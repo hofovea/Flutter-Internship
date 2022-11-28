@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:path_provider/path_provider.dart';
 
@@ -7,18 +8,19 @@ import 'lesson/lesson.dart';
 
 class DataService {
   static const _fileName = 'lessons.json';
+  static const _maxDuration = 3;
 
-  static List<Lesson> generateLessons() => [
+  static List<Lesson> _generateLessons() => [
         const Lesson(
             title: "Basic driving",
-            level: "intermediate",
+            level: "Beginner",
             levelIndicator: 0.33,
             price: 20,
             content: "Some lesson content",
             iconName: "directions_car"),
         const Lesson(
             title: "Intermediate driving",
-            level: "intermediate",
+            level: "Intermediate",
             levelIndicator: 0.66,
             price: 50,
             content: "Some intermediate lesson content",
@@ -44,15 +46,23 @@ class DataService {
 
   static Future<File> writeLessons() async {
     final file = await _localFile;
-    return file.writeAsString(jsonEncode({'lessons': generateLessons()}));
+    return file.writeAsString(jsonEncode({'data': _generateLessons()}));
+  }
+
+  static Future<String> getLessonsJson() async {
+    return Future.delayed(Duration(seconds: Random().nextInt(_maxDuration)), () {
+      return jsonEncode({'data': _generateLessons()});
+    });
   }
 
   static Future<List<Lesson>> readLessons() async {
     try {
-      final file = await _localFile;
-      final contents = await file.readAsString();
-      return jsonDecode(contents);
+      final lessonsList =
+          LessonList.fromJson(jsonDecode(await getLessonsJson()));
+      return Future.delayed(
+          Duration(seconds: Random().nextInt(_maxDuration)), () => lessonsList.data);
     } catch (e) {
+      print(e.toString());
       return Future.error(Exception('Cannot read from file'));
     }
   }
