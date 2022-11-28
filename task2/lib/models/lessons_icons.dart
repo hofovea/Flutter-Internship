@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/LessonsIcons.ttf
 ///
-/// 
+///
 /// * Material Design Icons, Copyright (C) Google, Inc
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
@@ -33,7 +33,31 @@ class LessonsIcons {
   static const _kFontFam = 'LessonsIcons';
   static const String? _kFontPkg = null;
 
-  static const IconData directions_car = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData steering_wheel = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData repair = IconData(0xea7f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData directions_car =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData steering_wheel =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData repair =
+      IconData(0xea7f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
+  static IconData getIconDataFromName(String name) {
+    switch (name) {
+      case 'directions_car':
+        {
+          return LessonsIcons.directions_car;
+        }
+      case 'steering_wheel':
+        {
+          return LessonsIcons.steering_wheel;
+        }
+      case 'repair':
+        {
+          return LessonsIcons.repair;
+        }
+      default:
+        {
+          throw Exception('No such icon with name $name');
+        }
+    }
+  }
 }

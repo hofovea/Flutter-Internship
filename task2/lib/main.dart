@@ -1,9 +1,9 @@
 import 'package:driver_lessons_app/models/data_service.dart';
 import 'package:driver_lessons_app/models/lesson/lesson.dart';
+import 'package:driver_lessons_app/widgets/app_color_set.dart';
 import 'package:driver_lessons_app/widgets/bottom_tab_bar.dart';
 import 'package:driver_lessons_app/widgets/lesson_tile.dart';
 import 'package:driver_lessons_app/widgets/options_drawer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,42 +30,25 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  static const int _selectedIndex = 0;
-  List<Lesson> lessons = [
-    // const Lesson(
-    //     title: "tt",
-    //     level: "begginer",
-    //     levelIndicator: 0.33,
-    //     price: 23,
-    //     content: "csscs",
-    //     iconName: "")
-  ];
-  static const Color _backgroundColor = Color.fromRGBO(60, 66, 86, 1);
-  static final _bottomMenuSelectedItemColor = Colors.amber[800];
-  static const _bottomMenuItemColor = Color.fromRGBO(190, 190, 190, 1);
+  List<Lesson> lessons = [];
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  String _title = '';
-
-  void _onItemTapped(int index) {
-    setState(() {
-      //_selectedIndex = index;
-    });
-  }
+  String _title = 'Lessons';
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 4,
         child: Scaffold(
-            backgroundColor: _backgroundColor,
+            backgroundColor: AppColorSet.backgroundColor,
             appBar: AppBar(
               elevation: 0,
-              backgroundColor: _backgroundColor,
+              backgroundColor: AppColorSet.backgroundColor,
               title: Text(_title),
             ),
-            endDrawer: const OptionsDrawer(backgroundColor: _backgroundColor),
+            endDrawer: const OptionsDrawer(
+                backgroundColor: AppColorSet.backgroundColor),
             body: Center(
               child: TabBarView(
                 children: [
@@ -101,8 +84,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             bottomNavigationBar: SafeArea(
               child: BottomTabBar(
-                bottomMenuItemColor: _bottomMenuItemColor,
-                bottomMenuSelectedItemColor: _bottomMenuSelectedItemColor,
+                bottomMenuItemColor: AppColorSet.bottomMenuItemColor,
+                bottomMenuSelectedItemColor:
+                    AppColorSet.bottomMenuSelectedItemColor,
                 onTapHandler: (index) {
                   setState(() {
                     switch (index) {
