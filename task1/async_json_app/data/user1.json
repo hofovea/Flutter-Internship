@@ -1,0 +1,8 @@
+{
+  "type": "User",
+  "data": {
+    "id": 0,
+    "username": "user 1",
+    "about": "Hi I'm user 1"
+  }
+}
