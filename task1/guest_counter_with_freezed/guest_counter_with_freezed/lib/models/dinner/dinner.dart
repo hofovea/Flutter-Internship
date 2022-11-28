@@ -34,8 +34,8 @@ class Dinner with _$Dinner {
   factory Dinner.fromList(List<String> invitationStringList) {
     int numberOfInvitations = 0;
     List<Invitation> guests = [];
-    for (var invitationString in invitationStringList) {
-      var invite = Invitation.fromString(invitationString);
+    for (var invitation in invitationStringList) {
+      var invite = Invitation.fromString(invitation);
       guests.add(invite);
       numberOfInvitations += invite.isAlone ? 1 : 2;
     }

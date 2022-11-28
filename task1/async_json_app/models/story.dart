@@ -1,7 +1,7 @@
 import 'user.dart';
-import 'default_model.dart';
+import 'base_model.dart';
 
-class Story extends DefaultModel {
+class Story extends BaseModel {
   final int _id;
   final String _title;
   final User _author;

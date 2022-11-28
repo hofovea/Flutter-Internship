@@ -36,7 +36,7 @@ class DataGenerator {
     print('Written generated guests into ${file.path}');
   }
 
-  static Future<Dinner> getJDinnerFromFile(
+  static Future<Dinner> getDinnerFromFile(
       {String filename = _defaultFilename}) async {
     String invitationsJsonString =
         await File(filename).readAsString(encoding: utf8);

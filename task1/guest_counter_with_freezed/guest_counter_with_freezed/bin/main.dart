@@ -15,7 +15,7 @@ void main(List<String> arguments) async {
   // print('Dinner price: ${dinner1.getPrice()}');
   print('-----------ASYNC TASK------------');
   DataGenerator.writeJsonGuestsToFile();
-  Dinner dinnerAsync = await DataGenerator.getJDinnerFromFile();
+  Dinner dinnerAsync = await DataGenerator.getDinnerFromFile();
   print(
       'Number of guests: ${dinnerAsync.numberOfInvitations}\nGuests: ${dinnerAsync.guests}');
   print('Dinner price: ${await dinnerAsync.getPrice()}');

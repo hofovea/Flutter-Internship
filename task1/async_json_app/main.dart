@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'models/default_model.dart';
+import 'models/base_model.dart';
 import 'models/story.dart';
 import 'models/user.dart';
 
-Future<DefaultModel> readFromJsonFile({required String filename}) async {
+Future<BaseModel> readFromJsonFile({required String filename}) async {
   String jsonStr = await File(filename).readAsString(encoding: utf8);
-  return DefaultModel.fromJson(jsonDecode(jsonStr));
+  return BaseModel.fromJson(jsonDecode(jsonStr));
 }
 
 void main(List<String> args) async {

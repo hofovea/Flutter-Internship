@@ -2,10 +2,10 @@ import 'json_writable.dart';
 import 'story.dart';
 import 'user.dart';
 
-abstract class DefaultModel with JsonConvertable {
+abstract class BaseModel with JsonConvertable {
   Map<String, dynamic> toJson();
-  const DefaultModel();
-  factory DefaultModel.fromJson(Map<String, dynamic> jsonMap) {
+  const BaseModel();
+  factory BaseModel.fromJson(Map<String, dynamic> jsonMap) {
     switch (jsonMap['type']) {
       case 'User':
         return User.fromMap(jsonMap['data']);

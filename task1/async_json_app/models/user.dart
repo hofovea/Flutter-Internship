@@ -1,6 +1,6 @@
-import 'default_model.dart';
+import 'base_model.dart';
 
-class User extends DefaultModel {
+class User extends BaseModel {
   final int _id;
   final String _username;
   final String _about;

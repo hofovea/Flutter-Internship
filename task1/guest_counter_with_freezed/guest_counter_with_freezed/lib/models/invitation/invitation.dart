@@ -20,9 +20,9 @@ class Invitation with _$Invitation {
             'User${Random().nextInt(DataGenerator.maxGuestAmount) + DataGenerator.minGuestAmount}',
         isAlone: Random().nextBool());
   }
-  factory Invitation.fromString(String invitatonStr) {
-    bool isAlone = !invitatonStr.contains("+one");
-    String name = invitatonStr.split(' ')[0];
+  factory Invitation.fromString(String invitaton) {
+    bool isAlone = !invitaton.contains("+one");
+    String name = invitaton.split(' ')[0];
     return Invitation(name: name, isAlone: isAlone);
   }
 }
