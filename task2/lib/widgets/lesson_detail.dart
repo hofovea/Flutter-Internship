@@ -3,6 +3,7 @@ import 'package:driver_lessons_app/style/lessons_icons_file.dart';
 import 'package:flutter/material.dart';
 
 import '../models/lesson/lesson.dart';
+import 'linear_progress.dart';
 
 class LessonDetail extends StatelessWidget {
   final Lesson lesson;
@@ -11,10 +12,7 @@ class LessonDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final levelIndicator = LinearProgressIndicator(
-        backgroundColor: AppColorSet.backgroundColor,
-        value: lesson.levelIndicator,
-        valueColor: AlwaysStoppedAnimation(AppColorSet.progressBarColor));
+    final levelIndicator = LinearProgress(lesson: lesson);
 
     final coursePrice = Container(
       padding: const EdgeInsets.all(7.0),
