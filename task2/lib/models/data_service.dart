@@ -57,10 +57,8 @@ class DataService {
 
   static Future<List<Lesson>> readLessons() async {
     try {
-      final lessonsList =
-          LessonList.fromJson(jsonDecode(await getLessonsJson()));
-      return Future.delayed(
-          Duration(seconds: Random().nextInt(_maxDuration)), () => lessonsList.data);
+      final lessonsList = LessonList.fromJson(jsonDecode(await getLessonsJson()));
+      return Future.delayed(Duration(seconds: Random().nextInt(_maxDuration)), () => lessonsList.data);
     } catch (e) {
       print(e.toString());
       return Future.error(Exception('Cannot read from file'));

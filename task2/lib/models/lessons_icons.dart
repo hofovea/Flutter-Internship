@@ -27,19 +27,25 @@
 ///
 import 'package:flutter/widgets.dart';
 
+/* Дарт дает возможность использовать файл без класса и объявлять методы и переменные на уровне файла. Я добавил файл lessons_icons_file
+ .dart с примером */
+
+//todo этот класс относится к UI его в моделях быть не должно, он должен быть у тебя в той папке где у тебя UI (в данном случае это папка
+// widgets). Думаю сдесь подой
 class LessonsIcons {
+  //todo с какой целью используешь приватный конструктор в классе где объявлены одни статические переменные? Вобщем подумай и если это не
+  // нужно то убери
   LessonsIcons._();
 
   static const _kFontFam = 'LessonsIcons';
+  //todo эта переменная везде null. Зачем она? если не используешь что-то - удаляй
   static const String? _kFontPkg = null;
 
-  static const IconData directions_car =
-      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData steering_wheel =
-      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData repair =
-      IconData(0xea7f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData directions_car = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData steering_wheel = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData repair = IconData(0xea7f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 
+//todo думаю лучше переименовать в getIconDataByName
   static IconData getIconDataFromName(String name) {
     switch (name) {
       case 'directions_car':

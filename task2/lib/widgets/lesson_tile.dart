@@ -14,19 +14,12 @@ class LessonTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => LessonDetail(lesson: lesson)));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => LessonDetail(lesson: lesson)));
         },
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         leading: Container(
           padding: const EdgeInsets.only(right: 12.0),
-          decoration: const BoxDecoration(
-              border: Border(
-                  right: BorderSide(
-                      width: 1.0, color: AppColorSet.verticalBorderColor))),
+          decoration: const BoxDecoration(border: Border(right: BorderSide(width: 1.0, color: AppColorSet.verticalBorderColor))),
           child: Icon(
             LessonsIcons.getIconDataFromName(lesson.iconName),
             color: AppColorSet.iconColor,
@@ -34,8 +27,7 @@ class LessonTile extends StatelessWidget {
         ),
         title: Text(
           lesson.content,
-          style: const TextStyle(
-              color: AppColorSet.textColor, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColorSet.textColor, fontWeight: FontWeight.bold),
         ),
         subtitle: Row(
           children: <Widget>[
@@ -44,18 +36,15 @@ class LessonTile extends StatelessWidget {
                 child: LinearProgressIndicator(
                     backgroundColor: AppColorSet.backgroundColor,
                     value: lesson.levelIndicator,
-                    valueColor:
-                        AlwaysStoppedAnimation(AppColorSet.progressBarColor))),
+                    valueColor: AlwaysStoppedAnimation(AppColorSet.progressBarColor))),
             Expanded(
               flex: 4,
               child: Padding(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: Text(lesson.level,
-                      style: const TextStyle(color: AppColorSet.textColor))),
+                  padding: EdgeInsets.only(left: 10.0), //todo это должно быть const
+                  child: Text(lesson.level, style: const TextStyle(color: AppColorSet.textColor))),
             )
           ],
         ),
-        trailing: const Icon(Icons.keyboard_arrow_right,
-            color: AppColorSet.iconColor, size: 30.0));
+        trailing: const Icon(Icons.keyboard_arrow_right, color: AppColorSet.iconColor, size: 30.0));
   }
 }
