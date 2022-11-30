@@ -1,5 +1,5 @@
-import 'package:driver_lessons_app/models/lessons_icons.dart';
-import 'package:driver_lessons_app/widgets/app_color_set.dart';
+import 'package:driver_lessons_app/style/app_color_set.dart';
+import 'package:driver_lessons_app/style/lessons_icons_file.dart';
 import 'package:flutter/material.dart';
 
 import '../models/lesson/lesson.dart';
@@ -32,7 +32,7 @@ class LessonDetail extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: 120.0),
         Icon(
-          LessonsIcons.getIconDataFromName(lesson.iconName),
+          getIconDataByName(lesson.iconName),
           color: Colors.white,
           size: 40.0,
         ),

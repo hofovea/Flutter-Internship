@@ -1,8 +1,8 @@
 import 'package:driver_lessons_app/models/lesson/lesson.dart';
-import 'package:driver_lessons_app/models/lessons_icons.dart';
+import 'package:driver_lessons_app/style/lessons_icons_file.dart';
 import 'package:flutter/material.dart';
 
-import 'app_color_set.dart';
+import '../style/app_color_set.dart';
 import 'lesson_detail.dart';
 
 class LessonTile extends StatelessWidget {
@@ -21,7 +21,7 @@ class LessonTile extends StatelessWidget {
           padding: const EdgeInsets.only(right: 12.0),
           decoration: const BoxDecoration(border: Border(right: BorderSide(width: 1.0, color: AppColorSet.verticalBorderColor))),
           child: Icon(
-            LessonsIcons.getIconDataFromName(lesson.iconName),
+            getIconDataByName(lesson.iconName),
             color: AppColorSet.iconColor,
           ),
         ),
@@ -40,7 +40,7 @@ class LessonTile extends StatelessWidget {
             Expanded(
               flex: 4,
               child: Padding(
-                  padding: EdgeInsets.only(left: 10.0), //todo это должно быть const
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Text(lesson.level, style: const TextStyle(color: AppColorSet.textColor))),
             )
           ],
