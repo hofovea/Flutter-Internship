@@ -108,7 +108,7 @@ class LessonDetail extends StatelessWidget {
         ));
     final bottomContent = Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(40.0),
+      padding: const EdgeInsets.all(40.0),
       child: Center(
         child: Column(
           children: <Widget>[bottomContentText, readButton],
